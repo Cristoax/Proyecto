@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cstdio> // Para las funciones de entrada/salida
-#include <cstdlib> // Para el sistema de limpieza de pantalla
+#include <cstdio> 
+#include <cstdlib> 
 
 using namespace std;
 
@@ -13,7 +13,7 @@ struct Producto {
 
 void agregarProducto(FILE* archivo) {
     Producto nuevoProducto;
-    cout << "Ingrese el código del producto: ";
+    cout << "Ingrese el codigo del producto: ";
     scanf("%d", &nuevoProducto.codigo);
     cout << "Ingrese el nombre del producto: ";
     scanf(" %[^\n]", nuevoProducto.nombre);
@@ -30,7 +30,7 @@ void agregarProducto(FILE* archivo) {
 }
 
 int main() {
-    FILE* archivo = fopen("productos.txt", "a"); // Abrir archivo en modo anexar
+    FILE* archivo = fopen("productos.txt", "a"); 
 
     if (!archivo) {
         cerr << "Error al abrir el archivo." << endl;
@@ -39,11 +39,11 @@ int main() {
 
     int opcion;
     do {
-        system("cls"); // Limpieza de pantalla (Linux/Unix)
+        system("cls"); 
         cout << "Menú:" << endl;
         cout << "1. Agregar producto" << endl;
         cout << "2. Salir" << endl;
-        cout << "Seleccione una opción: ";
+        cout << "Seleccione una opcion: ";
         scanf("%d", &opcion);
 
         switch (opcion) {
@@ -54,10 +54,10 @@ int main() {
                 cout << "Saliendo del programa..." << endl;
                 break;
             default:
-                cout << "Opción inválida. Intente nuevamente." << endl;
+                cout << "Opcion invalida. Intente nuevamente." << endl;
         }
     } while (opcion != 2);
 
-    fclose(archivo); // Cerrar el archivo
+    fclose(archivo); 
     return 0;
 }
