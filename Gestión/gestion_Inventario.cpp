@@ -22,7 +22,6 @@ void agregarProducto(FILE* archivo) {
     cout << "Ingrese el precio del producto: ";
     scanf("%lf", &nuevoProducto.precio);
 
-    // Escribir el producto en el archivo
     fprintf(archivo, "%d %s %d %.2f\n", nuevoProducto.codigo, nuevoProducto.nombre,
             nuevoProducto.cantidad, nuevoProducto.precio);
 
