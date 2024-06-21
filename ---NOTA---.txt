@@ -1,0 +1,3 @@
+**AVISO**
+
+Es posible que la carpeta del código o de la carpeta del trabajo escrito se encuentren desactualizados o con probables fallas, esto se debe ya que están puestos más que todo como una evidencia de que tales cosas existen, sin embargo, es muy posible que un integrante del equipo tenga su version mas actualizada pero aún no la haya subido o terminado, por ende es posible que encuentre alguna de las fallas anteriormente mencionadas. Gracias por su comprensión.
