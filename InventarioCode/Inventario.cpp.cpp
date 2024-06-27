@@ -40,13 +40,13 @@ void AddRecord()
 
     cin.ignore();
 
-    cout << "Producto ID. ";
+    cout << "Producto ID: ";
     cin.getline(empno, 5);
-    cout << "Nombre del Producto. ";
+    cout << "Nombre del Producto: ";
     cin.getline(name, 50);
-    cout << "Precio del producto. ";
+    cout << "Precio del producto: ";
     cin.getline(precio, 5);
-    cout << "Cantidad del producto. ";
+    cout << "Cantidad del producto: ";
     cin.getline(cantidad, 5);
 
 
@@ -134,11 +134,11 @@ void UpdateRecord(string search)
         {
             counter++;
 
-            cout << "Nombre del Producto. ";
+            cout << "Nombre del Producto: ";
             cin.getline(name, 50);
-            cout << "Precio del Producto. ";
+            cout << "Precio del Producto: ";
             cin.getline(precio, 5);
-            cout << "Cantidad del Producto. ";
+            cout << "Cantidad del Producto: ";
             cin.getline(cantidad, 5);
 
 
