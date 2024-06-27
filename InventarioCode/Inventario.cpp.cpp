@@ -260,5 +260,3 @@ int main()
     cout << "Saliendo... Archivo guardado!" << endl;
     return 0;
 }
-
-//tengo sue;o//
