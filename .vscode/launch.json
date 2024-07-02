@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/USUARIO/Documents/timatun",
-      "program": "c:/Users/USUARIO/Documents/timatun/build/Debug/outDebug",
+      "cwd": "c:/Users/USUARIO/Desktop/Proyecto/InventarioCode",
+      "program": "c:/Users/USUARIO/Desktop/Proyecto/InventarioCode/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

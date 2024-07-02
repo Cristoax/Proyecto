@@ -10,11 +10,14 @@ string EmpName [maxrow] = {};
 string EmpID [maxrow] = {};
 string EmpPrecio [maxrow] = {};
 string EmpCantidad [maxrow] = {};
+string EmpMonto [maxrow] = {};
+
+int recordCount = 0;
 
 void OpenFile()
 {
     string line;
-    ifstream myfile("C:\\Users\\USUARIO\\Documents\\InventarioCode\\inventario.txt");
+    ifstream myfile("C:\\Users\\USUARIO\\Desktop\\Proyecto\\InventarioCode\\inventario.txt");
     if (myfile.is_open())
     {
         int x = 0;
@@ -25,6 +28,7 @@ void OpenFile()
             EmpName[x] = line.substr(4, 1 - 4);
             x++;
         }
+        recordCount = x;
     }
     else 
     {
@@ -34,20 +38,20 @@ void OpenFile()
 void AddRecord()
 {
     char name [50];
-    char empno [5];
-    char precio [5];
-    char cantidad [5];
+    char empno [50];
+    char precio [50];
+    char cantidad [50];
 
     cin.ignore();
 
     cout << "Producto ID: ";
-    cin.getline(empno, 5);
+    cin.getline(empno, 50);
     cout << "Nombre del Producto: ";
     cin.getline(name, 50);
     cout << "Precio del producto: ";
-    cin.getline(precio, 5);
+    cin.getline(precio, 50);
     cout << "Cantidad del producto: ";
-    cin.getline(cantidad, 5);
+    cin.getline(cantidad, 50);
 
 
     for (int x = 0; x < maxrow; x++)
@@ -59,6 +63,11 @@ void AddRecord()
             EmpPrecio[x] = precio;
             EmpCantidad[x] = cantidad;
 
+            int precioInt = atoi(precio);
+            int cantidadInt = atoi(cantidad);
+            int monto = precioInt * cantidadInt;
+            EmpMonto[x] = to_string(monto);
+
             break;
             
         }
@@ -69,16 +78,16 @@ void ListRecord()
 {
     system ("CLS");
     cout << "Los Productos son" << endl;
-    cout << "======================================================" << endl;
+    cout << "=============================================================" << endl;
 
     int counter = 0;
-    cout << " No. |   ID   |     Nombre    |  Precio   | Cantidad " << endl << "------------------------------------------------------\n";
+    cout << " No. |   ID   |     Nombre    |  Precio  | Cantidad | Monto" << endl << "-------------------------------------------------------------\n";
     for (int x = 0; x < maxrow; x++)
     {
         if (EmpID[x] != "\0")
         { 
             counter++;
-            cout << "   " << counter << "     " << EmpID[x] << "        " << EmpName[x] << "        " << EmpPrecio[x] << "       " << EmpCantidad[x] << endl;
+            cout << "   " << counter << "     " << EmpID[x] << "        " << EmpName[x] << "        " << EmpPrecio[x] << "       " << EmpCantidad[x] << "      " << EmpMonto[x] << endl;
 
         }
 
@@ -89,14 +98,14 @@ void ListRecord()
         cout << "Producto no encontrado!" << endl;
     }
 
-    cout << "======================================================" << endl;
+    cout << "=============================================================" << endl;
 }
 
 void SearchRecord(string search)
 {
     system ("CLS");
     cout << "Los Productos son" << endl;
-    cout << "========================================================" << endl;
+    cout << "=============================================================" << endl;
     int counter = 0;
     for (int x = 0; x < maxrow; x++)
     {
@@ -104,7 +113,7 @@ void SearchRecord(string search)
         if (EmpID[x] == search)
         { 
             counter++;
-            cout << "   " << counter << "     " << EmpID[x] << "        " << EmpName[x] << "        " << EmpPrecio[x] << "       " << EmpCantidad[x] <<  endl;
+            cout << "   " << counter << "     " << EmpID[x] << "        " << EmpName[x] << "        " << EmpPrecio[x] << "       " << EmpCantidad[x] << "      " << EmpMonto[x] << endl;
             break;
         }
 
@@ -123,8 +132,8 @@ void UpdateRecord(string search)
 {
     char name [50];
     char empno [50];
-    char precio [5];
-    char cantidad [5];
+    char precio [50];
+    char cantidad [50];
 
     int counter = 0;
 
@@ -137,14 +146,19 @@ void UpdateRecord(string search)
             cout << "Nombre del Producto: ";
             cin.getline(name, 50);
             cout << "Precio del Producto: ";
-            cin.getline(precio, 5);
+            cin.getline(precio, 50);
             cout << "Cantidad del Producto: ";
-            cin.getline(cantidad, 5);
+            cin.getline(cantidad, 50);
 
 
             EmpName[x] = name;
             EmpPrecio[x] = precio;
             EmpCantidad[x] = cantidad;
+
+            int precioInt = atoi(precio);
+            int cantidadInt = atoi(cantidad);
+            int monto = precioInt * cantidadInt;
+            EmpMonto[x] = to_string(monto);
 
             cout << "Actualizacion completada!" << endl;
             break;
@@ -190,7 +204,7 @@ void DeleteRecord(string search)
 void SaveToFile()
 {
     ofstream myfile;
-    myfile.open("C:\\Users\\USUARIO\\Documents\\InventarioCode\\inventario.txt");
+    myfile.open("C:\\Users\\USUARIO\\Desktop\\Proyecto\\InventarioCode\\inventario.txt");
 
     for (int x = 0; x < maxrow; x++)
     {
@@ -200,7 +214,7 @@ void SaveToFile()
         }
         else
         {
-            myfile << EmpID[x] + ", " + EmpName[x] + "        " + EmpPrecio[x] + "        " + EmpCantidad[x] << endl;
+            myfile << EmpID[x] + ", " + EmpName[x] + "        " + EmpPrecio[x] + "        " + EmpCantidad[x] + "      " + EmpMonto[x] << endl;
         }
     }
 }
